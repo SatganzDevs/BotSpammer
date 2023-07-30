@@ -1,10 +1,42 @@
-Express.js Template
-This is a simple Express.js template that can be used as a starting point for creating web applications with Node.js and Express.
 
-Features
-Provides a basic Express.js setup with routing and middleware support.
-Uses EJS as the template engine.
-Includes a simple test suite using Mocha and Chai.
+![Logo](https://i.ibb.co/JzPWHpC/Kimi-no-na-wa-wallpaper.jpg)
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more information.
+
+# Spammer Bot
+
+bot untuk mengirim kode verifikasi, spammer dan wagpt
+bot ini dibuat oleh SatganzDevs
+
+
+## 🚀 About SatganzDevs
+I'm a full stack developer
+I'm a student
+
+
+## API Reference
+
+#### Get all items
+
+```http
+  GET /send-message
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `recepient` | `string` | for message sending |
+
+## Authors
+
+- [@SatganzDevs](https://www.github.com/SatganzDevs)
+
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Demo
+https://botspammer.satganzdevs.repl.co
+
+
+
