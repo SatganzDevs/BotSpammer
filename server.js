@@ -101,28 +101,28 @@ otpBot.on("message", async (message) => {
       );
   otpBot.sendPresenceUpdate(message.from, "composing");
 
-  // const configuration = new Configuration({
-  //   apiKey: "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",
-  // });
-  // const openai = new OpenAIApi(configuration);
+  const configuration = new Configuration({
+    apiKey: "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",
+  });
+  const openai = new OpenAIApi(configuration);
 
-  // const completion = await openai.createChatCompletion({
-  //   model: "gpt-3.5-turbo-16k-0613",
-  //   messages: [
-  //     { role: "system", content: "tolong gunakan bahasa indonesia ya" },
-  //     { role: "user", content: message.body },
-  //   ],
-  // });
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo-16k-0613",
+    messages: [
+      { role: "system", content: "tolong gunakan bahasa indonesia ya" },
+      { role: "user", content: message.body },
+    ],
+  });
 
-  // const response = completion.data.choices[0].message.content;
+  const response = completion.data.choices[0].message.content;
 
-  // otpBot.sendText(message.from, response, message);
+  otpBot.sendText(message.from, response, message);
 
-  // receivedMessages.push({
-  //   sender: message.from,
-  //   body: message.body,
-  //   timestamp: formatDate(new Date()),
-  // });
+  receivedMessages.push({
+    sender: message.from,
+    body: message.body,
+    timestamp: formatDate(new Date()),
+  });
 
   startTime = Date.now();
 });
@@ -131,19 +131,19 @@ app.get("/messages", (req, res) => {
   res.json(receivedMessages);
 });
 
-// app.post("/send-message", (req, res) => {
-//   const { recipient, message } = req.body;
-//   if (!recipient || !message) {
-//     return res
-//       .status(400)
-//       .json({ error: "Recipient and message are required." });
-//   }
+app.post("/send-message", (req, res) => {
+  const { recipient, message } = req.body;
+  if (!recipient || !message) {
+    return res
+      .status(400)
+      .json({ error: "Recipient and message are required." });
+  }
 
-//   otpBot
-//     .sendText(recipient + "@s.whatsapp.net", message)
-//     .then(() => res.json({ success: true }))
-//     .catch((error) => res.status(500).json({ error: "Failed to send message." }));
-// });
+  otpBot
+    .sendText(recipient + "@s.whatsapp.net", message)
+    .then(() => res.json({ success: true }))
+    .catch((error) => res.status(500).json({ error: "Failed to send message." }));
+});
 
 app.get("/runtime", (req, res) => {
   res.json({
@@ -154,7 +154,7 @@ app.get("/runtime", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 
 const server = app.listen(port, () => {
