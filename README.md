@@ -36,7 +36,7 @@ I'm a student
 
 
 ## Demo
-https://botspammer.satganzdevs.repl.co
+https://s.id/1RPom
 
 
 
